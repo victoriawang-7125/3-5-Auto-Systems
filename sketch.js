@@ -44,6 +44,12 @@ function newPainting() {
 
   strokes = [];
   for (let i = 0; i < 70; i++) strokes.push(new Stroke(random(width), random(height), false));
+
+  // fast-forward a bit so the painting already has paint on it when it appears
+  for (let step = 0; step < 120; step++) {
+    time += 0.0025;
+    moveStrokes();
+  }
 }
 
 class Stroke {
@@ -73,7 +79,7 @@ class Stroke {
     const sideY = sin(angle + HALF_PI);
     for (const b of this.bristles) {
       const offset = b * this.size * fade;
-      stroke(this.color[0], this.color[1], this.color[2], 30 * fade + 2);
+      stroke(this.color[0], this.color[1], this.color[2], 45 * fade + 5);
       strokeWeight(max(0.6, this.size * fade / 5));
       line(this.prev.x + sideX * offset, this.prev.y + sideY * offset,
            this.pos.x + sideX * offset,  this.pos.y + sideY * offset);
@@ -87,6 +93,10 @@ class Stroke {
 function draw() {
   if (paused) return;
   time += 0.0025;
+  moveStrokes();
+}
+
+function moveStrokes() {
   for (let i = 0; i < strokes.length; i++) {
     // when a stroke ends, replace it with a new one somewhere random
     if (!strokes[i].update()) strokes[i] = new Stroke(random(width), random(height), false);
