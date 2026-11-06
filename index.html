@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shifting Strokes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div id="stage"></div>
+  <aside id="panel">
+    <h1>Shifting Strokes</h1>
+    <p class="mode">Palette: <span id="mode"></span></p>
+    <dl>
+      <dt>Click + drag</dt><dd>Paint extra strokes</dd>
+      <dt>Double-click</dt><dd>New painting</dd>
+      <dt><kbd>N</kbd></dt><dd>New painting</dd>
+      <dt><kbd>Space</kbd></dt><dd>Pause / resume</dd>
+      <dt><kbd>F</kbd></dt><dd>Fullscreen (Esc to exit)</dd>
+      <dt><kbd>S</kbd></dt><dd>Save as PNG</dd>
+    </dl>
+    <button id="fs">Fullscreen</button>
+  </aside>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+<script src="sketch.js"></script>
+</body>
+</html>
