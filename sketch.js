@@ -113,12 +113,12 @@ function mouseDragged() {
   if (strokes.length > 220) strokes.splice(70, strokes.length - 220); // don't let it get too many
 }
 
-function doubleClicked() {
-  if (mouseInCanvas()) newPainting();
+// a double-click is two quick presses, so event.detail is 2 on the second one
+function mousePressed(event) {
+  if (mouseInCanvas() && event.detail === 2) newPainting();
 }
 
 function keyPressed() {
-  if (key === 'n' || key === 'N') newPainting();
   if (key === 's' || key === 'S') saveCanvas('shifting-strokes', 'png');
   if (key === 'f' || key === 'F') toggleFull();
   if (key === ' ') { paused = !paused; return false; }
